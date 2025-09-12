@@ -7,13 +7,14 @@ const active =
 
 export default function Navbar() {
     return (
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
-            <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-                <Link to="/" className="font-bold text-lg">JGJ</Link>
+        <header className="sticky top-0 z-50 mt-3">
+            <nav className="backdrop-blur-lg border-white/30 shadow-md mx-auto flex max-w-5xl items-center border
+            justify-between px-4 py-3 rounded-2xl">
+                <Link to="/" className="font-bold text-lg text-black"> Javier Golpe </Link>
                 <div className="flex gap-2">
                     {[
                         { to: "/", label: "Home" },
-                        { to: "/projects", label: "Projects" },
+                        // { to: "/projects", label: "Projects" },
                         { to: "/about", label: "About" },
                         { to: "/contact", label: "Contact" },
                     ].map((item) => (
