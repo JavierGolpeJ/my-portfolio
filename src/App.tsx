@@ -1,43 +1,58 @@
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+// import Home from "./pages/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
 import Prism from "./components/Prism.tsx";
+import Hero from "./components/Hero.tsx";
+import Projects from "./components/FeaturedProjects.tsx";
+import SkillToolbox from "./components/SkillsToolbox.tsx";
+import Experience from "./components/Experience.tsx";
+import Footer from "./components/Footer.tsx";
 
 function App() {
 
   return (
-          <div >
-              <Helmet>
-                  <title>Javier Golpe Juarez — Portfolio</title>
-                  <meta name="description" content="Projects, skills, and contact info." />
-              </Helmet>
-              <Navbar />
 
-              <div style={{ position: 'absolute', inset: 0, zIndex: 2 }}>
-                  <Prism
-                      animationType="3drotate"
-                      timeScale={0.5}
-                      height={5.5}
-                      baseWidth={5.5}
-                      scale={5}
-                      hueShift={0}
-                      colorFrequency={1}
-                      noise={0}
-                      glow={1}
-                  />
-                  <main className="mx-auto max-w-5xl px-4 pb-16 pt-8 absolute inset-0 z-1">
-                      <Routes>
-                          <Route path="/" element={<Home />} />
-                          <Route path="/about" element={<About />} />
-                          <Route path="/contact" element={<Contact />} />
-                      </Routes>
-                  </main>
-              </div>
 
+      <div className="relative min-h-screen">
+          <Helmet>
+              <title>Javier Golpe Juarez — Portfolio</title>
+              <meta name="description" content="Projects, skills, and contact info." />
+          </Helmet>
+
+          {/* Prism background */}
+          <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+              <Prism
+                  animationType="3drotate"
+                  timeScale={0.5}
+                  height={5.5}
+                  baseWidth={5.5}
+                  scale={5}
+                  hueShift={0}
+                  colorFrequency={1}
+                  noise={0}
+                  glow={1}
+              />
           </div>
+
+          <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/40 border-b border-black/5 dark:border-white/5">
+              <Navbar />
+          </header>
+
+          {/* Main Content */}
+          <main className="relative z-10">
+              <Hero />
+              <Projects />
+              <SkillToolbox />
+              <Experience />
+              <About />
+              <Contact />
+              <Footer />
+          </main>
+      </div>
+
 
   )
 }
