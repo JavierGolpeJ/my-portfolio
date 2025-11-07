@@ -11,7 +11,7 @@ export default function Hero(){
         <section id="home" className="relative">
             <div className="max-w-6xl mx-auto px-4 pt-12 pb-10 md:pt-20 md:pb-16">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className={sectionBox}>
+                    <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }} className={sectionBox}>
                         <div className={tag}>Hero / Value Prop</div>
                         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold leading-tight">
                             Software Engineer crafting reliable, scalable web apps
@@ -27,7 +27,7 @@ export default function Hero(){
                         <div className="mt-4 text-xs text-gray-500">Trust markers (logos, metrics, awards) — optional</div>
                     </motion.div>
 
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.5 }} className={`${sectionBox} min-h-[260px]`}>
+                    <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 2 }} className={`${sectionBox} min-h-[260px]`}>
                         <div className={tag}>Preview / Hero Visual</div>
                         <div className="mt-2 h-48 md:h-64 rounded-xl border-2 border-dashed grid place-items-center">
                             {/* TODO: Headshot, animated code, product mockups, or 3D canvas */}
