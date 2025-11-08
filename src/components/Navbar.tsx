@@ -1,15 +1,34 @@
-import {useState} from "react";
+import { useState } from "react";
 
 export default function Navbar() {
-    const [menuOpen, setMenuOpen] =useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const linkStyle =
         "px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-neutral-800 transition";
 
+    const items = ["Home", "Projects", "Skills", "Experience", "About", "Contact"];
+
+    const handleNavClick = (id: string) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        // close menu on mobile
+        setMenuOpen(false);
+
+        // offset for navbar height (adjust 80 if your header is taller/shorter)
+        const y = el.getBoundingClientRect().top + window.scrollY - 70;
+
+        window.scrollTo({
+            top: y,
+            behavior: "smooth",
+        });
+    };
+
     return (
-        <div>
+        <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/50 border-b border-black/5 dark:border-white/5">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="h-16 flex items-center justify-between">
+                    {/* Logo + name */}
                     <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-xl border-2 border-dashed border-gray-400" />
                         <div className="leading-tight">
@@ -18,24 +37,29 @@ export default function Navbar() {
                         </div>
                     </div>
 
+                    {/* Desktop nav */}
                     <nav className="hidden md:flex items-center gap-1">
-                        {[
-                            "Home",
-                            "Projects",
-                            "Skills",
-                            "Experience",
-                            "About",
-                            "Contact",
-                        ].map((item) => (
-                            <a key={item} href={`#${item.toLowerCase()}`} className={linkStyle}>
-                                {item}
-                            </a>
-                        ))}
-                        <a href="#resume" className={`${linkStyle} bg-black text-white dark:bg-white dark:text-black`}>
+                        {items.map((item) => {
+                            const id = item.toLowerCase();
+                            return (
+                                <button
+                                    key={item}
+                                    onClick={() => handleNavClick(id)}
+                                    className={linkStyle}
+                                >
+                                    {item}
+                                </button>
+                            );
+                        })}
+                        <button
+                            onClick={() => handleNavClick("resume")}
+                            className={`${linkStyle} bg-black text-white dark:bg-white dark:text-black`}
+                        >
                             Resume
-                        </a>
+                        </button>
                     </nav>
 
+                    {/* Mobile hamburger */}
                     <button
                         className="md:hidden p-2 rounded-xl border border-gray-300 dark:border-neutral-700"
                         onClick={() => setMenuOpen((v) => !v)}
@@ -48,19 +72,31 @@ export default function Navbar() {
                 </div>
             </div>
 
+            {/* Mobile menu overlay (no layout shift) */}
             {menuOpen && (
-                <div className="md:hidden border-t border-black/5 dark:border-white/5">
+                <div className="md:hidden fixed inset-x-0 top-16 z-40 bg-white/95 dark:bg-black/95 border-b border-black/5 dark:border-white/5">
                     <div className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-2 gap-2">
-                        {["Projects", "Skills", "Experience", "About", "Contact", "Resume"].map(
-                            (item) => (
-                                <a key={item} href={`#${item.toLowerCase()}`} className="px-3 py-2 rounded-xl border border-gray-200 dark:border-neutral-800 text-sm">
+                        {items.map((item) => {
+                            const id = item.toLowerCase();
+                            return (
+                                <button
+                                    key={item}
+                                    onClick={() => handleNavClick(id)}
+                                    className="px-3 py-2 rounded-xl border border-gray-200 dark:border-neutral-800 text-sm text-left"
+                                >
                                     {item}
-                                </a>
-                            )
-                        )}
+                                </button>
+                            );
+                        })}
+                        <button
+                            onClick={() => handleNavClick("resume")}
+                            className="px-3 py-2 rounded-xl border border-gray-900 bg-black text-white dark:bg-white dark:text-black text-sm text-left"
+                        >
+                            Resume
+                        </button>
                     </div>
                 </div>
             )}
-        </div>
+        </header>
     );
 }

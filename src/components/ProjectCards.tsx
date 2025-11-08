@@ -33,7 +33,7 @@ export default function ProjectCards(
                     {tags?.map((idx) => (
                         <li
                             key={idx}
-                            className="text-[8px] px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 hover:scale-105 transition-all duration-300">
+                            className="text-[10px] px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 hover:scale-105 transition-all duration-300">
                             {idx}
                         </li>
                     ))}
