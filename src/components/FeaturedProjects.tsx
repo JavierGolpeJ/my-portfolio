@@ -4,11 +4,17 @@ export default function Projects(){
     return(
         <section id="projects" className="md:py-[75px]">
             <div className="max-w-6xl mx-auto px-4">
-                <h2 className="text-xl md:text-2xl font-bold mb-4">Featured Projects / Case Studies</h2>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-6 max-w-2xl">
-                    {/* TODO: One‑sentence explainer. Prefer 2–4 flagship projects with measurable impact and a live demo or code links. */}
-                    Selected work with outcomes, architecture highlights, and takeaways.
-                </p>
+                {/* Heading */}
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+                    <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+                    <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                        Featured Projects / Case Studies
+                    </span>
+                    </h2>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md">
+                        Selected work with outcomes, architecture highlights, and takeaways.
+                    </p>
+                </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     <ProjectCards title={'Case Study #1'}
                                   subtitle={'Web-Based MIPS Emulator Front-End'}

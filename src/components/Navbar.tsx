@@ -25,7 +25,7 @@ export default function Navbar() {
     };
 
     return (
-        <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/50 border-b border-black/5 dark:border-white/5">
+        <div>
             <div className="max-w-6xl mx-auto px-4">
                 <div className="h-16 flex items-center justify-between">
                     {/* Logo + name */}
@@ -97,6 +97,6 @@ export default function Navbar() {
                     </div>
                 </div>
             )}
-        </header>
+        </div>
     );
 }
