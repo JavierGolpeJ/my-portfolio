@@ -16,14 +16,14 @@ function App() {
   return (
 
 
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen bg-black no-scrollbar">
           <Helmet>
               <title>Javier Golpe Juarez — Portfolio</title>
               <meta name="description" content="Projects, skills, and contact info." />
           </Helmet>
 
           {/* Prism background */}
-          <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-black">
               <Prism
                   animationType="3drotate"
                   timeScale={0.5}
