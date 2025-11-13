@@ -4,13 +4,17 @@ export default function Contact() {
     return(
         <section
             id="contact"
-            className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-12 mt-[96px] bg-gradient-to-br rounded-2xl
-            from-cyan-100 via-white to-white dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+            className="relative overflow-hidden rounded-3xl max-w-6xl
+             mx-4 sm:mx-10 lg:mx-auto
+             mt-8 sm: mb-8
+             px-6 py-10 sm:py-14 lg:py-10
+             bg-gradient-to-br from-cyan-100 via-white to-white
+             dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
         >
             <h2 className="text-3xl sm:text-4xl font-semibold mb-8 tracking-tight">
-        <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
-          Contact
-        </span>
+                <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                  Contact
+                </span>
             </h2>
 
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1.8fr)_minmax(260px,1.1fr)]">

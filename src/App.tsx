@@ -15,14 +15,14 @@ import Footer from "./components/Footer.tsx";
 function App() {
 
   return (
-      <div className="relative min-h-dvh no-scrollbar">
+      <div className="relative min-h-[100dvh] overflow-hidden no-scrollbar">
           <Helmet>
               <title>Javier Golpe Juarez — Portfolio</title>
               <meta name="description" content="Projects, skills, and contact info." />
           </Helmet>
 
           {/* Background Animation */}
-          <div className="fixed inset-0 dark:bg-black -z-10 h-dvh w-screen overflow-hidden pointer-events-none">
+          <div className="fixed inset-0 dark:bg-black -z-10 w-screen pointer-events-none">
               <div className="absolute inset-0">
               <ColorBends className="w-full h-full"
                   colors={["#bb1537", "#4806fa", "#00f3cb"]}
@@ -39,7 +39,8 @@ function App() {
               </div>
           </div>
 
-          <header className="sticky top-0 m-3 rounded-2xl z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/40 border-b border-black/5 dark:border-white/5">
+          <header className="sticky top-0 m-3 rounded-2xl z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60
+          dark:supports-[backdrop-filter]:bg-black/40 border-b border-black/5 dark:border-white/5">
               <Navbar />
           </header>
 

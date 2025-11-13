@@ -4,13 +4,17 @@ export default function About(){
     return(
         <section
             id="about"
-            className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-16 bg-gradient-to-br rounded-2xl mt-12
-            from-cyan-100 via-white to-white dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+            className="relative overflow-hidden rounded-3xl max-w-6xl
+             mx-4 sm:mx-10 lg:mx-auto
+             mt-8 sm: mb-8 lg:mb-[46px]
+             px-6 py-10 sm:py-14 lg:py-10
+             bg-gradient-to-br from-cyan-100 via-white to-white
+             dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
         >
             <h2 className="text-3xl sm:text-4xl font-semibold mb-10 tracking-tight">
-        <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
-          About Me
-        </span>
+                <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                  About Me
+                </span>
             </h2>
 
             <div className="grid md:grid-cols-[2fr_1fr] gap-6">

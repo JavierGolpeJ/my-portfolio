@@ -5,7 +5,12 @@ export default function Hero(){
     return(
         <section
             id="home"
-            className="relative overflow-hidden  rounded-3xl max-w-6xl mx-auto mt-8 px-6 py-10 sm:py-14 lg:py-16 bg-gradient-to-br from-cyan-100 via-white to-white dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+            className="relative overflow-hidden rounded-3xl max-w-6xl
+             mx-4 sm:mx-10 lg:mx-auto
+             mt-8 sm: mb-8
+             px-6 py-10 sm:py-14 lg:py-16
+             bg-gradient-to-br from-cyan-100 via-white to-white
+             dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
         >
             {/* soft glow */}
             <div className="pointer-events-none absolute -top-32 -left-16 w-64 h-64 bg-cyan-300/40 blur-3xl opacity-70" />
