@@ -4,7 +4,7 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const linkStyle =
-        "px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-neutral-800 transition";
+        "px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-neutral-800 transition dark:text-white";
 
     const items = ["Home", "Projects", "Skills", "Experience", "About", "Contact"];
 
@@ -32,8 +32,8 @@ export default function Navbar() {
                     <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-xl border-2 border-dashed border-gray-400" />
                         <div className="leading-tight">
-                            <div className="text-xs text-gray-500">My Portfolio</div>
-                            <div className="font-semibold">Javier Golpe Juarez</div>
+                            <div className="text-xs text-gray-500 dark:text-white">My Portfolio</div>
+                            <div className="font-semibold dark:text-white">Javier Golpe Juarez</div>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@ export default function Navbar() {
                         })}
                         <button
                             onClick={() => handleNavClick("resume")}
-                            className={`${linkStyle} bg-black text-white dark:bg-white dark:text-black`}
+                            className={`${linkStyle} dark:bg-black dark:text-white bg-white text-black`}
                         >
                             Resume
                         </button>

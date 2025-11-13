@@ -2,7 +2,7 @@ const experiences = [
     {
         period: "2025 — Present",
         role: "Software Engineer",
-        company: "HomeSellrr",
+        company: "Confidential Startup",
         highlights: [
             "Shipped feature X used by 10k monthly users (NPS +18).",
             "Led migration to TypeScript, reducing runtime errors by 35%.",
@@ -38,11 +38,15 @@ export default function Experience(){
             id="experience"
             className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-16 relative"
         >
-            <h2 className="text-3xl sm:text-4xl font-semibold mb-10 tracking-tight">
-        <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
-          Experience
-        </span>
-            </h2>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight px-5 py-2 rounded-2xl
+                    bg-white/60 dark:bg-black/40 backdrop-blur-md border border-black/5
+                    dark:border-white/10 shadow-sm">
+                        <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                            Experience
+                        </span>
+                </h2>
+            </div>
 
             {/* === TIMELINE WRAPPER === */}
             <div className="relative pl-10 space-y-10">

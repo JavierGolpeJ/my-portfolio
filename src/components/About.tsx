@@ -4,7 +4,7 @@ export default function About(){
     return(
         <section
             id="about"
-            className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-16 bg-gradient-to-br rounded-2xl
+            className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-16 bg-gradient-to-br rounded-2xl mt-12
             from-cyan-100 via-white to-white dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
         >
             <h2 className="text-3xl sm:text-4xl font-semibold mb-10 tracking-tight">

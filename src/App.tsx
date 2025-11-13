@@ -4,7 +4,8 @@ import Navbar from "./components/Navbar";
 // import Home from "./pages/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Prism from "./components/Prism.tsx";
+// import Prism from "./components/Prism.tsx";
+import ColorBends from "./background_components/ColorBend.tsx";
 import Hero from "./components/Hero.tsx";
 import Projects from "./components/FeaturedProjects.tsx";
 import SkillToolbox from "./components/SkillsToolbox.tsx";
@@ -14,27 +15,28 @@ import Footer from "./components/Footer.tsx";
 function App() {
 
   return (
-
-
-      <div className="relative min-h-screen bg-black no-scrollbar">
+      <div className="relative min-h-dvh no-scrollbar">
           <Helmet>
               <title>Javier Golpe Juarez — Portfolio</title>
               <meta name="description" content="Projects, skills, and contact info." />
           </Helmet>
 
-          {/* Prism background */}
-          <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-black">
-              <Prism
-                  animationType="3drotate"
-                  timeScale={0.5}
-                  height={5.5}
-                  baseWidth={5.5}
-                  scale={5}
-                  hueShift={0}
-                  colorFrequency={1}
+          {/* Background Animation */}
+          <div className="fixed inset-0 dark:bg-black -z-10 h-dvh w-screen overflow-hidden pointer-events-none">
+              <div className="absolute inset-0">
+              <ColorBends className="w-full h-full"
+                  colors={["#bb1537", "#4806fa", "#00f3cb"]}
+                  rotation={0}
+                  autoRotate={1}
+                  speed={.5}
+                  scale={1.5}
+                  frequency={1.9}
+                  warpStrength={1}
+                  mouseInfluence={0.8}
+                  parallax={.5}
                   noise={0}
-                  glow={1}
               />
+              </div>
           </div>
 
           <header className="sticky top-0 m-3 rounded-2xl z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/40 border-b border-black/5 dark:border-white/5">

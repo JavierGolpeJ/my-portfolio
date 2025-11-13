@@ -51,15 +51,17 @@ export default function SkillsToolbox() {
         >
             {/* Heading */}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
-                    <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
-                        Skills &amp; Toolbox
-                    </span>
-                </h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md">
-                    A focused stack for building fast, reliable web apps from UI to
+                <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight px-5 py-2 rounded-2xl
+                    bg-white/60 dark:bg-black/40 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-sm
+                    text-gray-900 dark:text-white">
+                        <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                            Skills &amp; Toolbox
+                        </span>
+                    <span className="block text-sm text-gray-500 dark:text-gray-400 font-normal mt-1">
+                            A focused stack for building fast, reliable web apps from UI to
                     deployment.
-                </p>
+                        </span>
+                </h2>
             </div>
 
             {/* Cards */}
@@ -85,7 +87,7 @@ export default function SkillsToolbox() {
                                     <div className="text-[10px] uppercase tracking-[0.18em] text-gray-500 dark:text-gray-500">
                                         {section.label}
                                     </div>
-                                    <h3 className="text-lg font-semibold">
+                                    <h3 className="text-lg font-semibold bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
                                         {section.title}
                                     </h3>
                                 </div>

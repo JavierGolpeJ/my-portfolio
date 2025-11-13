@@ -5,7 +5,7 @@ export default function Hero(){
     return(
         <section
             id="home"
-            className="relative overflow-hidden border border-black/5 dark:border-white/5 rounded-3xl max-w-6xl mx-auto mt-8 px-6 py-10 sm:py-14 lg:py-16 bg-gradient-to-br from-cyan-100 via-white to-white dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+            className="relative overflow-hidden  rounded-3xl max-w-6xl mx-auto mt-8 px-6 py-10 sm:py-14 lg:py-16 bg-gradient-to-br from-cyan-100 via-white to-white dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
         >
             {/* soft glow */}
             <div className="pointer-events-none absolute -top-32 -left-16 w-64 h-64 bg-cyan-300/40 blur-3xl opacity-70" />
@@ -14,7 +14,8 @@ export default function Hero(){
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }} className="relative grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(260px,1.2fr)] items-center">
                 {/* Left: Copy */}
                 <div>
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900 dark:text-white">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight
+                    bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
                         Software Engineer crafting reliable,
                         <span className="block"> scalable web apps.</span>
                     </h1>
