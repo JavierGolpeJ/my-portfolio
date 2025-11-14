@@ -1,69 +1,119 @@
 import { motion } from "framer-motion";
+import type {Variants} from "motion";
+
+const container: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: .4,
+            // you can drop ease if TS still complains
+            ease: "easeOut",
+            when: "beforeChildren",
+            // if TS complains about this, move it out (see Fix 2)
+            staggerChildren: 0.8,
+        },
+    },
+};
+
+const item = {
+    hidden: { opacity: 0, y: 18 },
+    show: { opacity: 1, y: 0 },
+};
+
 
 export default function Hero(){
+
 
     return(
         <section
             id="home"
             className="relative overflow-hidden rounded-3xl max-w-6xl
              mx-4 sm:mx-10 lg:mx-auto
-             mt-8 sm: mb-8
+             mt-8 sm:mb-8
              px-6 py-10 sm:py-14 lg:py-16
              bg-gradient-to-br from-cyan-100 via-white to-white
              dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
         >
-            {/* soft glow */}
-            <div className="pointer-events-none absolute -top-32 -left-16 w-64 h-64 bg-cyan-300/40 blur-3xl opacity-70" />
-            <div className="pointer-events-none absolute bottom-0 right-0 w-64 h-64 bg-purple-500/10 blur-3xl" />
-
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }} className="relative grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(260px,1.2fr)] items-center">
+            <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="relative grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(260px,1.2fr)] items-center"
+            >
                 {/* Left: Copy */}
                 <div>
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight
-                    bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                    <motion.h1
+                        variants={item}
+                        className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight
+              bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent"
+                    >
                         Software Engineer crafting reliable,
                         <span className="block"> scalable web apps.</span>
-                    </h1>
+                    </motion.h1>
 
-                    <p className="mt-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl">
+                    <motion.p
+                        variants={item}
+                        className="mt-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl"
+                    >
                         I design and build full-stack experiences with React, TypeScript,
                         Node.js, PostgreSQL, and cloud services — with a focus on
                         performance, DX, and clean architecture.
-                    </p>
+                    </motion.p>
 
                     {/* CTAs */}
-                    <div className="mt-8 flex flex-wrap items-center gap-3">
-                        <a
+                    <motion.div
+                        variants={item}
+                        className="mt-8 flex flex-wrap items-center gap-3"
+                    >
+                        <motion.a
+                            whileHover={{ y: -2, scale: 1.02 }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ type: "spring", stiffness: 250, damping: 18 }}
                             href="#projects"
-                            className="px-6 py-3 rounded-2xl bg-gray-900 text-white text-sm font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                            className="px-6 py-3 rounded-2xl bg-gray-900 text-white text-sm font-medium shadow-md hover:shadow-lg transition-all"
                         >
                             View Projects
-                        </a>
+                        </motion.a>
 
-                        <a
+                        <motion.a
+                            whileHover={{ y: -2, scale: 1.02 }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ type: "spring", stiffness: 250, damping: 18 }}
                             href="#contact"
-                            className="px-6 py-3 rounded-2xl bg-white/80 dark:bg-white/5 border border-black/5 dark:border-white/10 text-sm text-gray-900 dark:text-gray-100 font-medium backdrop-blur hover:bg-white hover:dark:bg-white/10 hover:-translate-y-0.5 transition-all"
+                            className="px-6 py-3 rounded-2xl bg-white/80 dark:bg-white/5 border border-black/5 dark:border-white/10 text-sm text-gray-900 dark:text-gray-100 font-medium backdrop-blur hover:bg-white hover:dark:bg-white/10 transition-all"
                         >
                             Contact Me
-                        </a>
+                        </motion.a>
 
-                        <a
+                        <motion.a
+                            whileHover={{ y: -2, scale: 1.02 }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ type: "spring", stiffness: 250, damping: 18 }}
                             href="/Javier-Golpe-Juarez-Resume.pdf"
-                            className="px-6 py-3 rounded-2xl border border-gray-300/90 dark:border-gray-600/80 text-sm text-gray-800 dark:text-gray-100 font-medium hover:bg-gray-900 hover:text-white hover:-translate-y-0.5 transition-all"
+                            className="px-6 py-3 rounded-2xl border border-gray-300/90 dark:border-gray-600/80 text-sm text-gray-800 dark:text-gray-100 font-medium hover:bg-gray-900 hover:text-white transition-all"
                         >
                             Download Resume
-                        </a>
-                    </div>
+                        </motion.a>
+                    </motion.div>
 
                     {/* Optional trust row */}
-                    <div className="mt-5 text-[10px] text-gray-500 dark:text-gray-500">
+                    <motion.div
+                        variants={item}
+                        className="mt-5 text-[10px] text-gray-500 dark:text-gray-500"
+                    >
                         Previously built tools for real-estate, developer tooling, and
                         security projects at UWM.
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Right: Visual */}
-                <div
+                <motion.div
+                    variants={item}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     className="
             relative rounded-3xl border border-black/5 dark:border-white/5
             bg-white/70 dark:bg-slate-900/60 backdrop-blur-md
@@ -79,7 +129,7 @@ export default function Hero(){
                         AI-Docs tool, or HomeSellrr dashboard) to immediately signal what
                         you build.
                     </div>
-                </div>
+                </motion.div>
             </motion.div>
         </section>
     );
