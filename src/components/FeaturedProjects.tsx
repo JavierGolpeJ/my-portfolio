@@ -27,9 +27,9 @@ export default function Projects(){
     return(
         <motion.section
             id="projects"
-            className="md:py-[75px]"
+            className="mt-12 md:mt-4 lg:mt-2 md:py-[75px]"
         >
-            <div className="max-w-6xl mx-auto px-4 ">
+            <div className="max-w-6xl mx-auto px-4">
                 {/* Heading */}
                 <motion.div
                     className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10"
@@ -38,8 +38,8 @@ export default function Projects(){
                     whileInView="show"
                     viewport={{
                         once: true,
-                        amount: 0.6,          // needs ~60% of the element in view
-                        margin: "0px 0px -20% 0px", // delay trigger until it's a bit lower
+                        amount: 0.9,          // needs ~60% of the element in view
+                        margin: "0px 0px -25% 0px", // delay trigger until it's a bit lower
                     }}
                 >
                     <h2

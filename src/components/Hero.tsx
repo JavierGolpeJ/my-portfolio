@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import type {Variants} from "motion";
 
+const sectionVariants: Variants = {
+    hidden: { opacity: 0, y: -20 },
+    show: { opacity: 1, y: 0 ,
+        transition: { duration: 1.6, ease: "easeOut" }
+    },
+};
+
+
 const container: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: {
@@ -12,7 +20,7 @@ const container: Variants = {
             ease: "easeOut",
             when: "beforeChildren",
             // if TS complains about this, move it out (see Fix 2)
-            staggerChildren: 0.8,
+            staggerChildren: 0.45,
         },
     },
 };
@@ -27,7 +35,7 @@ export default function Hero(){
 
 
     return(
-        <section
+        <motion.section
             id="home"
             className="relative overflow-hidden rounded-3xl max-w-6xl
              mx-4 sm:mx-10 lg:mx-auto
@@ -35,11 +43,12 @@ export default function Hero(){
              px-6 py-10 sm:py-14 lg:py-16
              bg-gradient-to-br from-cyan-100 via-white to-white
              dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+            variants={sectionVariants}
+            initial="hidden"
+            animate="show"
         >
             <motion.div
                 variants={container}
-                initial="hidden"
-                animate="show"
                 className="relative grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(260px,1.2fr)] items-center"
             >
                 {/* Left: Copy */}
@@ -114,12 +123,9 @@ export default function Hero(){
                     whileHover={{ y: -6, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className="
-            relative rounded-3xl border border-black/5 dark:border-white/5
-            bg-white/70 dark:bg-slate-900/60 backdrop-blur-md
-            h-[220px] sm:h-[260px] lg:h-[280px]
-            flex items-center justify-center
-            shadow-sm"
+                    className="relative rounded-3xl border border-black/5 dark:border-white/5
+                    bg-white/70 dark:bg-slate-900/60 backdrop-blur-md
+                    h-[220px] sm:h-[260px] lg:h-[280px] flex items-center justify-center shadow-sm"
                 >
                     <div className="absolute inset-4 rounded-2xl border border-dashed border-gray-300/80 dark:border-gray-600/70 pointer-events-none" />
                     <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 text-center px-6 leading-relaxed">
@@ -131,6 +137,6 @@ export default function Hero(){
                     </div>
                 </motion.div>
             </motion.div>
-        </section>
+        </motion.section>
     );
 }

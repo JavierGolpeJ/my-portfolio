@@ -15,7 +15,7 @@ import Footer from "./components/Footer.tsx";
 function App() {
 
   return (
-      <div className="relative min-h-[100dvh] overflow-hidden no-scrollbar">
+      <div className="relative min-h-[100dvh] no-scrollbar">
           <Helmet>
               <title>Javier Golpe Juarez — Portfolio</title>
               <meta name="description" content="Projects, skills, and contact info." />
