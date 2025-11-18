@@ -41,8 +41,8 @@ export default function Hero(){
              mx-4 sm:mx-10 lg:mx-auto
              mt-8 sm:mb-8
              px-6 py-10 sm:py-14 lg:py-16
-             bg-gradient-to-br from-cyan-100 via-white to-white
-             dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+             dark:bg-black/20 backdrop-blur-md shadow-sm
+             "
             variants={sectionVariants}
             initial="hidden"
             animate="show"

@@ -35,8 +35,7 @@ export default function About() {
             mx-4 sm:mx-10 lg:mx-auto
             mt-8 sm:mb-8 lg:mb-[46px]
             px-6 py-10 sm:py-14 lg:py-10
-            bg-gradient-to-br from-cyan-100 via-white to-white
-            dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+            "
             variants={containerVariants}
             initial="hidden"
             whileInView="show"

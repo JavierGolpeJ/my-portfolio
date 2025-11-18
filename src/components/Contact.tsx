@@ -13,7 +13,7 @@ const contactContainer: Variants = {
         y: 0,
         opacity: 1,
         transition: {
-            duration: 0.9,
+            duration: 0.8,
             ease: [0.16, 1, 0.3, 1],
             when: "beforeChildren",
             staggerChildren: 0.18,
@@ -22,11 +22,20 @@ const contactContainer: Variants = {
 };
 
 const cardVariant: Variants = {
-    hidden: { opacity: 0, y: 12 },
-    show: {
-        opacity: 1,
+    hidden: { scale: 1.12,            // feels like it starts huge
+        borderRadius: 0,       // flat sheet
+        y: -40,
+        opacity: 0,},
+    show: {scale: 1,
+        borderRadius: 24,      // matches rounded-3xl look
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut" },
+        opacity: 1,
+        transition: {
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+            when: "beforeChildren",
+            staggerChildren: 0.1,
+        },
     },
 };
 
@@ -38,8 +47,7 @@ export default function Contact() {
             mx-4 sm:mx-10 lg:mx-auto
             mt-8 sm:mb-8
             px-6 py-10 sm:py-14 lg:py-10
-            bg-gradient-to-br from-cyan-100 via-white to-white
-            dark:from-sky-900/40 dark:via-slate-950 dark:to-slate-950"
+            dark:bg-black/20 backdrop-blur-md shadow-sm"
             style={{ transformOrigin: "center center" }}
             variants={contactContainer}
             initial="hidden"
@@ -115,15 +123,10 @@ export default function Contact() {
                                 id="subject"
                                 type="text"
                                 placeholder="Subject"
-                                className="
-                  w-full rounded-2xl px-4 py-3
-                  bg-white/80 dark:bg-slate-900/80
-                  border border-gray-200/70 dark:border-gray-700/70
-                  text-sm text-gray-900 dark:text-gray-100
-                  placeholder:text-gray-400
-                  focus:outline-none focus:ring-2 focus:ring-sky-400/80 focus:border-transparent
-
-                "
+                                className="w-full rounded-2xl px-4 py-3
+                                bg-white/80 dark:bg-slate-900/80 border border-gray-200/70 dark:border-gray-700/70
+                                text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400
+                                focus:outline-none focus:ring-2 focus:ring-sky-400/80 focus:border-transparent"
                             />
                         </div>
 
@@ -139,23 +142,17 @@ export default function Contact() {
                                 border border-gray-200/70 dark:border-gray-700/70
                                 text-sm text-gray-900 dark:text-gray-100
                                 placeholder:text-gray-400
-                  focus:outline-none focus:ring-2 focus:ring-sky-400/80 focus:border-transparent
-                  resize-none transition-all
-                "
+                                focus:outline-none focus:ring-2 focus:ring-sky-400/80 focus:border-transparent
+                                resize-none transition-all"
                                 required
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="
-                inline-flex items-center justify-center
-                px-6 py-3 rounded-2xl
-                bg-gray-900 text-white text-sm font-medium
-                shadow-md hover:shadow-xl hover:-translate-y-0.5
-                active:translate-y-0 active:shadow-sm
-                transition-all
-              "
+                            className="inline-flex items-center justify-center px-6 py-3 rounded-2xl
+                            bg-gray-900 text-white text-sm font-medium shadow-md hover:shadow-xl hover:-translate-y-0.5
+                            active:translate-y-0 active:shadow-sm transition-all"
                         >
                             Send Message
                         </button>
@@ -166,11 +163,9 @@ export default function Contact() {
                 <motion.div
                     variants={cardVariant}
                     whileHover={{ y: -4 }}
-                    className="
-            rounded-3xl border border-black/5 dark:border-white/10
-            bg-white/40 dark:bg-slate-950/40
-            backdrop-blur-xl shadow-sm  p-6 sm:p-8 flex flex-col justify-between gap-4
-          "
+                    className="rounded-3xl border border-black/5 dark:border-white/10
+                    bg-white/40 dark:bg-slate-950/40 backdrop-blur-xl shadow-sm  p-6 sm:p-8
+                    flex flex-col justify-between gap-4"
                 >
                     <div>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-4">

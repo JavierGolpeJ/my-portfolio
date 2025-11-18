@@ -12,7 +12,9 @@ export default function ProjectCards(
     {title, description, image, tags}: ProjectCardProps){
 
     return(
-        <div className="rounded-2xl border border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-md shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 space-y-4">
+        <div className="rounded-2xl border border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-md
+        shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 space-y-4 h-full"
+        >
             <div className="aspect-video rounded-xl border-2 border-dashed grid place-items-center">
                 <span className="text-xs text-gray-500">{image ? image: "Screenshot / Demo"}</span>
             </div>

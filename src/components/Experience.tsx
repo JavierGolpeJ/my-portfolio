@@ -100,9 +100,12 @@ export default function Experience() {
                     bg-white/60 dark:bg-black/40 backdrop-blur-md border border-black/5
                     dark:border-white/10 shadow-sm"
                 >
-                  <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
-                    Experience
-                  </span>
+                    <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
+                        Experience
+                    </span>
+                    <span className="block text-sm text-gray-500 dark:text-gray-400 font-normal mt-1">
+                          A Track Record of Building Things
+                    </span>
                 </h2>
             </motion.div>
 
@@ -152,7 +155,8 @@ export default function Experience() {
                                         {exp.company}
                                     </p>
                                 </div>
-                                <span className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                                <span className="px-2.5 py-1 rounded-full text-[10px] bg-gray-900 text-gray-100
+                                    dark:bg-gray-100 dark:text-gray-900 uppercase tracking-[0.16em]">
                                   {exp.period}
                                 </span>
                             </div>
