@@ -39,10 +39,10 @@ function App() {
               </div>
           </div>
 
-          <header className="sticky top-0 m-3 rounded-2xl z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60
-          dark:supports-[backdrop-filter]:bg-black/40 border-b border-black/5 dark:border-white/5">
+          {/*<header className="sticky top-0 m-3 rounded-2xl z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60*/}
+          {/*dark:supports-[backdrop-filter]:bg-black/40 border-b border-black/5 dark:border-white/5">*/}
               <Navbar />
-          </header>
+          {/*</header>*/}
 
           {/* Main Content */}
           <main className="relative z-10">

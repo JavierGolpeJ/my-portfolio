@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [hidden, setHidden] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     const linkStyle =
         "px-3 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-neutral-800 transition dark:text-white";
@@ -24,8 +26,32 @@ export default function Navbar() {
         });
     };
 
+    useEffect(() => {
+        function handleScroll() {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                // scrolling **down** → hide navbar
+                setHidden(true);
+            } else {
+                // scrolling **up** → show navbar
+                setHidden(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
+
     return (
-        <div>
+        <header className={`
+                sticky top-0 z-50 transition-transform duration-300
+                ${hidden ? "-translate-y-full" : "translate-y-0"}
+                backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/40
+             
+            `}>
             <div className="max-w-6xl mx-auto px-4">
                 <div className="h-16 flex items-center justify-between">
                     {/* Logo + name */}
@@ -97,6 +123,6 @@ export default function Navbar() {
                     </div>
                 </div>
             )}
-        </div>
+        </header>
     );
 }
