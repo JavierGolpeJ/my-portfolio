@@ -14,10 +14,8 @@ export default function Navbar() {
         const el = document.getElementById(id);
         if (!el) return;
 
-        // close menu on mobile
         setMenuOpen(false);
 
-        // offset for navbar height (adjust 80 if your header is taller/shorter)
         const y = el.getBoundingClientRect().top + window.scrollY - 70;
 
         window.scrollTo({
@@ -31,10 +29,10 @@ export default function Navbar() {
             const currentScrollY = window.scrollY;
 
             if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                // scrolling **down** → hide navbar
+                // scrolling down → hide navbar
                 setHidden(true);
             } else {
-                // scrolling **up** → show navbar
+                // scrolling up → show navbar
                 setHidden(false);
             }
 
@@ -46,20 +44,30 @@ export default function Navbar() {
     }, [lastScrollY]);
 
     return (
-        <header className={`
-                sticky top-0 z-50 transition-transform duration-300
-                ${hidden ? "-translate-y-full" : "translate-y-0"}
-                backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/40
-             
-            `}>
+        <header
+            className={`
+        sticky top-0 z-50 transition-transform duration-300
+        ${hidden ? "-translate-y-full" : "translate-y-0"}
+        backdrop-blur supports-[backdrop-filter]:bg-white/60
+        dark:supports-[backdrop-filter]:bg-black/40
+      `}
+        >
             <div className="max-w-6xl mx-auto px-4">
                 <div className="h-16 flex items-center justify-between">
                     {/* Logo + name */}
                     <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl border-2 border-dashed border-gray-400" />
                         <div className="leading-tight">
-                            <div className="text-xs text-gray-500 dark:text-white">My Portfolio</div>
-                            <div className="font-semibold dark:text-white">Javier Golpe Juarez</div>
+                            <div className="text-[11px] uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">
+                                Portfolio
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="font-semibold dark:text-white">
+                                    Javier Golpe Juarez
+                                </div>
+                            </div>
+                            <div className="text-[11px] text-gray-500 dark:text-gray-400">
+                                Software Engineer · Full-stack web
+                            </div>
                         </div>
                     </div>
 
@@ -77,12 +85,35 @@ export default function Navbar() {
                                 </button>
                             );
                         })}
-                        <button
-                            onClick={() => handleNavClick("resume")}
-                            className={`${linkStyle} dark:bg-black dark:text-white bg-white text-black`}
+
+                        {/* Resume button */}
+                        <a
+                            href="/Javier-Golpe-Juarez-Resume.pdf"
+                            className={`${linkStyle} bg-white text-black dark:bg-black dark:text-white border border-black/10 dark:border-white/10 ml-1`}
                         >
                             Resume
-                        </button>
+                        </a>
+
+                        {/* subtle divider */}
+                        <div className="mx-2 h-5 w-px bg-black/10 dark:bg-white/10" />
+
+                        {/* Social links – fill the right side nicely */}
+                        <a
+                            href="https://github.com/your-github-here"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="px-2 py-1 text-xs rounded-xl hover:bg-gray-100 dark:hover:bg-neutral-800 text-gray-600 dark:text-gray-200"
+                        >
+                            GitHub
+                        </a>
+                        <a
+                            href="https://linkedin.com/in/your-linkedin-here"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="px-2 py-1 text-xs rounded-xl hover:bg-gray-100 dark:hover:bg-neutral-800 text-gray-600 dark:text-gray-200"
+                        >
+                            LinkedIn
+                        </a>
                     </nav>
 
                     {/* Mobile hamburger */}
@@ -114,12 +145,12 @@ export default function Navbar() {
                                 </button>
                             );
                         })}
-                        <button
-                            onClick={() => handleNavClick("resume")}
+                        <a
+                            href="/Javier-Golpe-Juarez-Resume.pdf"
                             className="px-3 py-2 rounded-xl border border-gray-900 bg-black text-white dark:bg-white dark:text-black text-sm text-left"
                         >
                             Resume
-                        </button>
+                        </a>
                     </div>
                 </div>
             )}
