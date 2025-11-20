@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import TypewriterCode from "./Typewriter.tsx";
 // ^ you can import Variants from framer-motion directly
 
 const sectionVariants: Variants = {
@@ -51,14 +52,13 @@ export default function Hero() {
                         variants={item}
                         className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-gray-500 mb-3"
                     >
-                        <span className="h-[1px] w-6 bg-gray-400/60" />
                         Javier Golpe Juarez • Software Engineer
                     </motion.div>
 
                     <motion.h1
                         variants={item}
                         className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight
-            bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent"
+                        bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent"
                     >
                         Software Engineer crafting reliable,
                         <span className="block">scalable web apps.</span>
@@ -150,32 +150,11 @@ export default function Hero() {
                                 <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
                             </div>
                             <span className="text-[10px] text-gray-500 dark:text-gray-400">
-                app.tsx
-              </span>
+                                profile.tsx
+                            </span>
                         </div>
 
-                        {/* fake code */}
-                        <div className="rounded-2xl bg-[#F2F4F3] dark:bg-zinc-950 text-[10px] leading-relaxed text-zinc-200 p-3 font-mono">
-                            <div className="text-zinc-500 mb-1">// Next.js + React + TS</div>
-                            <div>
-                                <span className="text-sky-400">export const</span>{" "}
-                                <span className="text-emerald-300">stack</span>{" "}
-                                <span className="text-sky-400">=</span>{" "}
-                                <span className="text-pink-400">[</span>
-                            </div>
-                            <div className="pl-4">
-                                <span className="text-amber-300">&quot;React&quot;</span>,{" "}
-                                <span className="text-amber-300">&quot;TypeScript&quot;</span>,{" "}
-                                <span className="text-amber-300">&quot;PostgreSQL&quot;</span>,
-                            </div>
-                            <div className="pl-4">
-                                <span className="text-amber-300">&quot;Node.js&quot;</span>,{" "}
-                                <span className="text-amber-300">&quot;Cloud&quot;</span>
-                            </div>
-                            <div>
-                                <span className="text-pink-400">]</span>;
-                            </div>
-                        </div>
+                        <TypewriterCode speedMs={50} loop={true} endDelayMs={3000}/>
 
                         {/* stats row */}
                         <div className="mt-4 grid grid-cols-3 gap-2 text-[10px]">

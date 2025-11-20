@@ -80,9 +80,9 @@ export default function Projects(){
                             tags={[
                                 "React ",
                                 "TypeScript ",
-                                "Front-End Development ",
                                 "UI/UX Design ",
                                 "Agile Development ",
+                                "Front-End Development ",
                             ]}
                         />
                     </motion.div>
@@ -102,8 +102,8 @@ export default function Projects(){
                             tags={[
                                 "Python ",
                                 "Pytorch ",
-                                "Prompt Engineering ",
                                 "Data Cleaning ",
+                                "Prompt Engineering ",
                             ]}
                         />
                     </motion.div>

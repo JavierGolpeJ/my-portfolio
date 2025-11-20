@@ -48,19 +48,13 @@ export default function Footer() {
                             >
                                 Experience
                             </a>
-                            <a
-                                href="#contact"
-                                className="text-sm hover:text-sky-400 transition-colors dark:text-white"
-                            >
-                                Contact
-                            </a>
                         </nav>
 
                         {/* Socials */}
                         <div className="flex items-center gap-3">
                             <motion.a
                                 aria-label="GitHub"
-                                href="https://github.com/your-handle"
+                                href="https://github.com/JavierGolpeJ"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="grid place-items-center w-9 h-9 rounded-xl border border-white/15 bg-white/20 dark:bg-white/10 hover:bg-white/30 transition"
@@ -79,7 +73,7 @@ export default function Footer() {
 
                             <motion.a
                                 aria-label="LinkedIn"
-                                href="https://www.linkedin.com/in/your-handle"
+                                href="https://www.linkedin.com/in/javier-golpe-jr-62b83a341"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="grid place-items-center w-9 h-9 rounded-xl border border-white/15 bg-white/20 dark:bg-white/10 hover:bg-white/30 transition"

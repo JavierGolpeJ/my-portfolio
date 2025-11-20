@@ -46,19 +46,19 @@ const sections = [
         label: "APIs / Data",
         skills: [
             { name: "Node.js", level: "Advanced" },
-            { name: "PostgreSQL", level: "Intermediate" },
+            { name: "mySQL", level: "Intermediate" },
             { name: "Supabase", level: "Intermediate" },
-            { name: "Express.js", level: "Intermediate" },
+            { name: "REST API Design", level: "Intermediate" },
         ],
     },
     {
-        title: "DevOps / Cloud",
-        label: "Infra / CI",
+        title: "Leveling Up",
+        label: "Learning",
         skills: [
-            { name: "AWS", level: "Intermediate" },
-            { name: "Docker", level: "Intermediate" },
-            { name: "GitHub Actions", level: "Intermediate" },
-            { name: "Vercel / Netlify", level: "Intermediate" },
+            { name: "React Native", level: "Intermediate" },
+            { name: "AI / Machine Learning", level: "Learning" },
+            { name: "Database Design", level: "Learning" },
+            { name: "Express.js", level: "Learning" },
         ],
     },
 ];
