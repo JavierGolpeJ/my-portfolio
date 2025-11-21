@@ -1,19 +1,15 @@
-// import { Routes, Route } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Navbar from "./components/Navbar";
-// import Home from "./pages/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-// import Prism from "./components/Prism.tsx";
+import About from "./sections/About.tsx";
+import Contact from "./sections/Contact.tsx";
 import ColorBends from "./background_components/ColorBend.tsx";
-import Hero from "./components/Hero.tsx";
-import Projects from "./components/FeaturedProjects.tsx";
-import SkillToolbox from "./components/SkillsToolbox.tsx";
-import Experience from "./components/Experience.tsx";
-import Footer from "./components/Footer.tsx";
+import Hero from "./sections/Hero.tsx";
+import Projects from "./sections/FeaturedProjects.tsx";
+import SkillToolbox from "./sections/SkillsToolbox.tsx";
+import Experience from "./sections/Experience.tsx";
+import Footer from "./sections/Footer.tsx";
 
 function App() {
-
   return (
       <div className="relative min-h-[100dvh] no-scrollbar">
           <Helmet>
@@ -39,10 +35,8 @@ function App() {
               </div>
           </div>
 
-          {/*<header className="sticky top-0 m-3 rounded-2xl z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60*/}
-          {/*dark:supports-[backdrop-filter]:bg-black/40 border-b border-black/5 dark:border-white/5">*/}
-              <Navbar />
-          {/*</header>*/}
+          {/*Nav*/}
+          <Navbar />
 
           {/* Main Content */}
           <main className="relative z-10">
@@ -55,8 +49,6 @@ function App() {
               <Footer />
           </main>
       </div>
-
-
   )
 }
 

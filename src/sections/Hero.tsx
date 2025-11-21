@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import TypewriterCode from "./Typewriter.tsx";
+import TypewriterCode from "../components/Typewriter.tsx";
 // ^ you can import Variants from framer-motion directly
 
 const sectionVariants: Variants = {

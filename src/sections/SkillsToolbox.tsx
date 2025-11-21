@@ -109,7 +109,7 @@ export default function SkillsToolbox() {
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.5 }}
             >
                 {sections.map((section) => (
                     <motion.div

@@ -1,7 +1,8 @@
+import MockUi from "./MockUI.tsx";
+
 type ProjectCardProps = {
     title: string,
     description: string,
-    image?: string; // optional project image or screenshot
     tags?: string[]; // optional tech stack or keywords
     readUrl?: string; // optional link to case study
     liveUrl?: string; // optional link to live demo
@@ -9,17 +10,13 @@ type ProjectCardProps = {
 }
 
 export default function ProjectCards(
-    {title, description, image, tags}: ProjectCardProps){
+    {title, description, tags}: ProjectCardProps){
 
     return(
         <div className="rounded-2xl border border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-md
         shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 space-y-4 h-full"
         >
-            <div className="aspect-video rounded-xl border-2 border-dashed grid place-items-center">
-                <span className="text-xs text-gray-500">{image ? image: "Screenshot / Demo"}</span>
-            </div>
-
-
+            <MockUi/>
             <div className="">
                 <h3 className="font-semibold dark:text-white">{title}</h3>
                 <div className="mt-2 p-4 rounded-2xl border border-white/10 bg-white/5 dark:bg-black/30 backdrop-blur-md relative">
@@ -35,6 +32,7 @@ export default function ProjectCards(
                         <li
                             key={idx}
                             className="text-[10px] px-3 py-2 rounded-2xl bg-white/10 hover:bg-white/20
+
                             hover:scale-105 transition-all duration-300">
                             {idx}
                         </li>

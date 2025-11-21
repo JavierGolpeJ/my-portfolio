@@ -49,34 +49,46 @@ const entryVariants: Variants = {
 
 const experiences = [
     {
-        period: "2025 — Present",
-        role: "Software Engineer",
+        period: "June 2025 — Present",
+        role: "Full-Stack Software Engineer",
         company: "Confidential Startup",
         highlights: [
-            "Shipped feature X used by 10k monthly users (NPS +18).",
-            "Led migration to TypeScript, reducing runtime errors by 35%.",
-            "Built CI/CD pipeline reducing deploy time from 10m → 2m.",
-        ],
+            "Designed and developed the entire application end-to-end, including UI, API logic, and database architecture.",
+            "Built a scalable Supabase backend with authentication, row-level security, and optimized SQL schemas.",
+            "Implemented a modern React + TypeScript frontend with reusable components, smooth navigation, and clean state management.",
+        ]
     },
     {
-        period: "2024 — 2025",
-        role: "Frontend Developer",
+        period: "Sep 2024 — May 2025",
+        role: "Software Engineer",
         company: "MIPS Emulator (UWM Project)",
         highlights: [
-            "Designed syntax-highlighting IDE using Monaco Editor.",
-            "Implemented register/memory visualization UI in React.",
-            "Collaborated with 5 teammates and professor for final demo.",
+            "Developed a custom Monaco Editor–based IDE with syntax highlighting and execution controls tailored for MIPS assembly.",
+            "Designed a custom syntax-highlighting interface, created a compact tab layout, and contributed to the overall UI/UX of the application.",
+            "Worked closely with a 5-person team and faculty advisor to plan features, run usability tests, and deliver a polished final demo.",
+        ],
+
+    },
+    {
+        period: "Feb 2025 — May 2025",
+        role: "Software Engineer",
+        company: "AI Documentation Generator",
+        highlights: [
+            "Built an automated code-to-documentation pipeline using Python and Hugging Face datasets.",
+            "Fine-tuned CodeLlama to generate function- and class-level documentation from raw source code.",
+            "Created a report generator that outputs human-readable documentation for faster onboarding and project understanding.",
         ],
     },
     {
-        period: "2023 — 2024",
-        role: "Full-Stack Developer",
-        company: "AI Documentation Generator",
+        period: "Dec 2022 - May 2023",
+        role: "Frontend Developer",
+        company: "School Management System",
         highlights: [
-            "Built code-to-docs pipeline using Node.js & Hugging Face datasets.",
-            "Fine-tuned CodeLlama to auto-generate function documentation.",
-            "Created report generator for onboarding teams faster.",
-        ],
+            "Collaborated with a 4-person team to design and build a full-stack school administration platform.",
+            "Developed responsive frontend interfaces using HTML, CSS, and JavaScript and connected them to a Python backend.",
+            "Implemented features for student records, class scheduling, and teacher management.",
+            "Created database schemas and queries to store student information securely.",
+        ]
     },
 ];
 

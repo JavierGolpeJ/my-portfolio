@@ -1,4 +1,4 @@
-import ProjectCards from "./ProjectCards.tsx";
+import ProjectCards from "../components/ProjectCards.tsx";
 import { motion, type Variants } from "framer-motion";
 
 const sectionVariants: Variants = {
@@ -48,7 +48,7 @@ export default function Projects(){
                         shadow-smtext-gray-900 dark:text-white"
                     >
                         <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">
-                          Featured Projects / Case Studies
+                          Featured Projects
                         </span>
                         <span className="block text-sm text-gray-500 dark:text-gray-400 font-normal mt-1">
                           Outcomes, architecture highlights, and takeaways.
