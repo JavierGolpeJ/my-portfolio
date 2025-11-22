@@ -38,7 +38,7 @@ export default function Projects(){
                     whileInView="show"
                     viewport={{
                         once: true,
-                        amount: 0.9,          // needs ~60% of the element in view
+                        amount: 0.9,
                         margin: "0px 0px -25% 0px", // delay trigger until it's a bit lower
                     }}
                 >
@@ -70,6 +70,7 @@ export default function Projects(){
                         whileHover={{ y: -6, scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        className="backdrop-blur-md rounded-2xl border border-white/10 bg-white/10 dark:bg-black/20"
                     >
                         <ProjectCards
                             title={"Web-Based MIPS Emulator Front-End"}
@@ -92,6 +93,7 @@ export default function Projects(){
                         whileHover={{ y: -6, scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        className="backdrop-blur-md rounded-2xl border border-white/10 bg-white/10 dark:bg-black/20"
                     >
                         <ProjectCards
                             title={"AI-Assisted Documentation with Fine-Tuned LLMs"}
@@ -113,6 +115,7 @@ export default function Projects(){
                         whileHover={{ y: -6, scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        className="backdrop-blur-md rounded-2xl border border-white/10 bg-white/10 dark:bg-black/20"
                     >
                         <ProjectCards
                             title={"Software Developer - Confidential Startup Project"}

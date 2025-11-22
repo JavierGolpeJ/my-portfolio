@@ -139,20 +139,21 @@ export default function Navbar() {
 
                     {/* Mobile hamburger */}
                     <button
-                        className="md:hidden p-2 rounded-xl border border-gray-300 dark:border-neutral-700"
+                        className="md:hidden p-2"
                         onClick={() => setMenuOpen((v) => !v)}
                         aria-label="Toggle menu"
                     >
-                        <div className="w-5 h-0.5 bg-current mb-1" />
-                        <div className="w-5 h-0.5 bg-current mb-1" />
-                        <div className="w-5 h-0.5 bg-current" />
+                        <div className="w-5 h-0.5 bg-current mb-1 dark:bg-sky-400" />
+                        <div className="w-5 h-0.5 bg-current mb-1 dark:bg-sky-400" />
+                        <div className="w-5 h-0.5 bg-current dark:bg-sky-400" />
                     </button>
                 </div>
             </div>
 
             {/* Mobile menu overlay (no layout shift) */}
             {menuOpen && (
-                <div className="md:hidden fixed inset-x-0 top-16 z-40 bg-white/95 dark:bg-black/95 border-b border-black/5 dark:border-white/5">
+                <div className="md:hidden fixed inset-x-0 top-16 z-40 bg-white/95 dark:bg-black/95
+                backdrop-blur-lg border-b border-black/5 dark:border-white/5">
                     <div className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-2 gap-2">
                         {items.map((item) => {
                             const id = item.toLowerCase();
@@ -160,7 +161,8 @@ export default function Navbar() {
                                 <button
                                     key={item}
                                     onClick={() => handleNavClick(id)}
-                                    className="px-3 py-2 rounded-xl border border-gray-200 dark:border-neutral-800 text-sm text-left"
+                                    className="px-3 py-2 rounded-xl border border-gray-200 dark:text-sky-400
+                                     backdrop-blur-lg dark:border-neutral-800 text-sm text-left"
                                 >
                                     {item}
                                 </button>

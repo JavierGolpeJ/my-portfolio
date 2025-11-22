@@ -13,14 +13,12 @@ export default function ProjectCards(
     {title, description, tags}: ProjectCardProps){
 
     return(
-        <div className="rounded-2xl border border-white/10 bg-white/10 dark:bg-black/20 backdrop-blur-md
-        shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 space-y-4 h-full"
-        >
+        <div className="shadow-sm hover:shadow-lg hover:-translate-y-1 p-6 space-y-4 h-full rounded-2xl">
             <MockUi/>
-            <div className="">
+            <div>
                 <h3 className="font-semibold dark:text-white">{title}</h3>
-                <div className="mt-2 p-4 rounded-2xl border border-white/10 bg-white/5 dark:bg-black/30 backdrop-blur-md relative">
-                    <div className="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-sky-400 to-pink-500"></div>
+                <div className="mt-2 p-4 rounded-2xl border border-white/10 bg-white/5 dark:bg-black/30  relative">
+                    <div className="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-sky-400 to-pink-500"/>
                     <p className="text-black dark:text-gray-300 text-sm leading-relaxed">
                         {description}
                     </p>
@@ -33,7 +31,7 @@ export default function ProjectCards(
                             key={idx}
                             className="text-[10px] px-3 py-2 rounded-2xl bg-white/10 hover:bg-white/20
 
-                            hover:scale-105 transition-all duration-300">
+                            hover:scale-105 duration-300">
                             {idx}
                         </li>
                     ))}

@@ -100,7 +100,7 @@ export default function Experience() {
             variants={sectionVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.45 }}
+            viewport={{ once: true, amount: 0.3 }}
         >
             {/* Heading drops in from top */}
             <motion.div

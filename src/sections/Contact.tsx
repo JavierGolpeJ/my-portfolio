@@ -58,7 +58,7 @@ export default function Contact() {
             variants={contactContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.6 }}
+            viewport={{ once: true, amount: 0.4 }}
         >
             <h2 className="text-3xl sm:text-4xl font-semibold mb-8 tracking-tight">
                 <span className="bg-gradient-to-r from-sky-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">

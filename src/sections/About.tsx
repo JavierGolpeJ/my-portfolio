@@ -30,7 +30,7 @@ export default function About() {
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.6, margin: '0px 0px -20% 0px' }}
+            viewport={{ once: true, amount: 0.4, margin: '0px 0px -20% 0px' }}
         >
             {/* Heading */}
             <motion.h2
