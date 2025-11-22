@@ -3,3 +3,22 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
+
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;               /* Chrome, Safari, iOS */
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;    /* IE/Edge */
+        scrollbar-width: none;       /* Firefox */
+    }
+}
+
+/* apply it to the page */
+@layer base {
+    html,
+    body {
+        @apply no-scrollbar;
+    }
+}
