@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
-import { useState } from "react";
+import {type FormEvent, useState} from "react";
+import {stagger} from "motion";
 
 const contactContainer: Variants = {
     hidden: {
@@ -17,7 +18,7 @@ const contactContainer: Variants = {
             duration: 0.8,
             ease: [0.16, 1, 0.3, 1],
             when: "beforeChildren",
-            staggerChildren: 0.25,
+            delayChildren: stagger(0.25)
         },
     },
 };
@@ -41,11 +42,44 @@ const cardVariant: Variants = {
     },
 };
 
+const FORM_ENDPOINT = 'https://formspree.io/f/xzzqvpqa';
+
 export default function Contact() {
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
+        "idle"
+    );
+    const [error, setError] = useState<string | null>(null);
 
-    console.log(submitted)
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setStatus("submitting");
+        setError(null);
 
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        try {
+            const res = await fetch(FORM_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                },
+                body: formData,
+            });
+
+            if (res.ok) {
+                setStatus("success");
+                form.reset();
+            } else {
+                setStatus("error");
+                setError("Something went wrong. Please try again.");
+            }
+        } catch (err) {
+            console.error(err);
+            setStatus("error");
+            setError("Network error. Please try again.");
+        }
+    }
     return (
         <motion.section
             id="contact"
@@ -115,51 +149,75 @@ export default function Contact() {
 
                         {/* --- Your form fields (unchanged) --- */}
                         <form
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                setSubmitted(true);
-                                setTimeout(() => setSubmitted(false), 3000);
-                            }}
+                            onSubmit={handleSubmit}
                             className="space-y-4 text-sm"
                         >
                             {/* Name / Email */}
                             <div className="grid sm:grid-cols-2 gap-3">
+                                {/* Honeypot for spam*/}
+                                <input
+                                    type="text"
+                                    name="_gotcha"
+                                    className="hidden"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
                                 <div className="space-y-1">
                                     <label className="text-[11px] uppercase tracking-[0.18em] text-gray-700 dark:text-gray-200">
                                         Name
                                     </label>
                                     <div
                                         className="flex items-center gap-2 rounded-2xl px-3 py-2.5
-                               bg-white/85 dark:bg-slate-950/85 border border-gray-200/70 dark:border-gray-700/80
-                               focus-within:border-sky-400/80 focus-within:ring-2 focus-within:ring-sky-400/60 transition-all"
+                                        bg-white/85 dark:bg-slate-950/85 border border-gray-200/70 dark:border-gray-700/80
+                                        focus-within:border-sky-400/80 focus-within:ring-2 focus-within:ring-sky-400/60 transition-all"
                                     >
-                                        <span className="text-xs text-sky-400">👤</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             className="lucide lucide-contact-round-icon lucide-contact-round text-sky-400">
+                                            <path d="M16 2v2"/>
+                                            <path d="M17.915 22a6 6 0 0 0-12 0"/>
+                                            <path d="M8 2v2"/>
+                                            <circle cx="12" cy="12" r="4"/>
+                                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                        </svg>
                                         <input
+                                            id="name"
                                             type="text"
+                                            name="name"
                                             required
                                             placeholder="Your name"
                                             className="w-full bg-transparent border-none outline-none
-                                 text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400"
+                                            text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-1">
-                                    <label className="text-[11px] uppercase tracking-[0.18em] text-gray-700 dark:text-gray-200">
+                                    <label
+                                        className="text-[11px] uppercase tracking-[0.18em] text-gray-700 dark:text-gray-200">
                                         Email
                                     </label>
                                     <div
                                         className="flex items-center gap-2 rounded-2xl px-3 py-2.5
-                               bg-white/85 dark:bg-slate-950/85 border border-gray-200/70 dark:border-gray-700/80
-                               focus-within:border-sky-400/80 focus-within:ring-2 focus-within:ring-sky-400/60 transition-all"
+                                        bg-white/85 dark:bg-slate-950/85 border border-gray-200/70 dark:border-gray-700/80
+                                        focus-within:border-sky-400/80 focus-within:ring-2 focus-within:ring-sky-400/60 transition-all"
                                     >
-                                        <span className="text-xs text-sky-400">✉️</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             className="lucide lucide-mail-icon lucide-mail text-sky-400">
+                                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
+                                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                        </svg>
                                         <input
+                                            id="email"
                                             type="email"
+                                            name="email"
                                             required
-                                            placeholder="you@example.com"
+                                            placeholder="your@example.com"
                                             className="w-full bg-transparent border-none outline-none
-                                 text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400"
+                                            text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400"
                                         />
                                     </div>
                                 </div>
@@ -172,12 +230,26 @@ export default function Contact() {
                                 </label>
                                 <div
                                     className="flex items-center gap-2 rounded-2xl px-3 py-2.5
-                             bg-white/85 dark:bg-slate-950/85 border border-gray-200/70 dark:border-gray-700/80
-                             focus-within:border-sky-400/80 focus-within:ring-2 focus-within:ring-sky-400/60 transition-all"
+                                    bg-white/85 dark:bg-slate-950/85 border border-gray-200/70 dark:border-gray-700/80
+                                    focus-within:border-sky-400/80 focus-within:ring-2 focus-within:ring-sky-400/60 transition-all"
                                 >
-                                    <span className="text-xs text-sky-400">🏷️</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         className="lucide lucide-satellite-icon lucide-satellite text-sky-400">
+                                        <path
+                                            d="m13.5 6.5-3.148-3.148a1.205 1.205 0 0 0-1.704 0L6.352 5.648a1.205 1.205 0 0 0 0 1.704L9.5 10.5"/>
+                                        <path d="M16.5 7.5 19 5"/>
+                                        <path
+                                            d="m17.5 10.5 3.148 3.148a1.205 1.205 0 0 1 0 1.704l-2.296 2.296a1.205 1.205 0 0 1-1.704 0L13.5 14.5"/>
+                                        <path d="M9 21a6 6 0 0 0-6-6"/>
+                                        <path
+                                            d="M9.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l4.296-4.296a1.205 1.205 0 0 0 0-1.704l-2.296-2.296a1.205 1.205 0 0 0-1.704 0z"/>
+                                    </svg>
                                     <input
+                                        id="subject"
                                         type="text"
+                                        name="subject"
                                         placeholder="What should this be about?"
                                         className="w-full bg-transparent border-none outline-none
                                text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400"
@@ -196,6 +268,8 @@ export default function Contact() {
                                     focus-within:border-sky-400/80 focus-within:ring-2 focus-within:ring-sky-400/60 transition-all"
                                 >
                                   <textarea
+                                      id="message"
+                                      name="message"
                                       rows={4}
                                       required
                                       placeholder="Share as much context as you like — roles, projects, timelines, tech, etc."
@@ -205,21 +279,83 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            {/* footer */}
-                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
-                                <p className="text-[11px] text-gray-500 dark:text-gray-400">
-                                    System note: I usually reply within 24 hours.
-                                </p>
-                                <button
-                                    type="submit"
-                                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-2xl
-                                    bg-gradient-to-r from-sky-500 to-purple-500 text-xs font-semibold tracking-wide text-white
-                                    shadow-[0_10px_30px_rgba(56,189,248,0.45)] hover:shadow-[0_16px_40px_rgba(56,189,248,0.65)]
-                                    hover:-translate-y-0.5 active:translate-y-0 transition-all"
-                                >
-                                    <span>Transmit message</span>
-                                    <span className="text-sm">↗</span>
-                                </button>
+                            {/* Footer */}
+                            <div className="pt-3 space-y-2">
+
+                                {/* Row: system note + button */}
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                    <p className="text-[11px] text-gray-500 dark:text-gray-400">
+                                        System note: I usually reply within 24 hours.
+                                    </p>
+
+                                    <button
+                                        type="submit"
+                                        disabled={status === "submitting" || status === "success"}
+                                        className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-2xl
+                                        bg-gradient-to-r from-sky-500 to-purple-500 text-xs font-semibold tracking-wide text-white
+                                        shadow-[0_10px_30px_rgba(56,189,248,0.45)]
+                                        hover:shadow-[0_16px_40px_rgba(56,189,248,0.65)]transition-all
+                                        ${
+                                            status === "submitting" || status === "success"
+                                                ? "opacity-70 cursor-not-allowed"
+                                                : "hover:-translate-y-0.5"
+                                        }`}
+                                    >
+                                        {status === "submitting" ? (
+                                            <span className="flex items-center gap-2">
+                                              <svg className="w-3 h-3 animate-spin" viewBox="0 0 24 24">
+                                                <circle
+                                                    className="opacity-30"
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                    stroke="white"
+                                                    strokeWidth="3"
+                                                    fill="none"
+                                                />
+                                                <path
+                                                    className="opacity-90"
+                                                    fill="white"
+                                                    d="M4 12a8 8 0 018-8v3a5 5 0 00-5 5H4z"
+                                                />
+                                              </svg>
+                                              Sending…
+                                            </span>
+                                        ) : status === "success" ? (
+                                            <>
+                                                Sent <span className="text-sm">✓</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                Transmit message
+                                                <span className="text-sm">↗</span>
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+
+                                {/* Inline status pill */}
+                                <div className="min-h-[28px]">
+                                    {status === "success" && (
+                                        <div className="inline-flex items-center gap-2 rounded-xl
+                                        bg-emerald-400/10 border border-emerald-400/40
+                                        px-3 py-1.5 text-[11px] font-medium text-emerald-300
+                                        shadow-sm shadow-emerald-500/20 animate-fade-in">
+                                            <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                                            <span>Signal received. I’ll get to you soon.</span>
+                                        </div>
+                                    )}
+
+                                    {status === "error" && (
+                                        <div className="inline-flex items-center gap-2 rounded-xl
+                                        bg-red-500/10 border border-red-500/40
+                                        px-3 py-1.5 text-[11px] font-medium text-red-300
+                                        shadow-sm shadow-red-500/20 animate-fade-in">
+                                            <span className="inline-flex h-1.5 w-1.5 rounded-full bg-red-400" />
+                                            <span>{error ?? "Transmission failed. Please try again."}</span>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -260,7 +396,7 @@ export default function Contact() {
                                 Javier Golpe Juarez
                             </p>
                             <p className="text-xs text-gray-500 dark:text-gray-400">
-                                Software Developer · Frontend · AI-assisted DX
+                                Software Developer · Full-Stack
                             </p>
                         </div>
                     </div>
