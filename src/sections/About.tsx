@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import {stagger} from "motion";
 
 const containerVariants: Variants = {
     hidden: { opacity: 0, y: 16 },
@@ -9,7 +10,7 @@ const containerVariants: Variants = {
             duration: 0.7,
             ease: [0.16, 1, 0.3, 1],
             when: "beforeChildren",
-            staggerChildren: 0.12,
+            delayChildren: stagger(.15)
         },
     },
 };

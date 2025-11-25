@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import TypewriterCode from "../components/Typewriter.tsx";
+import {stagger} from "motion";
 // ^ you can import Variants from framer-motion directly
 
 const sectionVariants: Variants = {
@@ -20,7 +21,7 @@ const container: Variants = {
             duration: 0.4,
             ease: "easeOut",
             when: "beforeChildren",
-            staggerChildren: 0.45,
+            delayChildren: stagger(.45)
         },
     },
 };

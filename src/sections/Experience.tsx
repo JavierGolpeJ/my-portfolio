@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import {stagger} from "motion";
 
 const sectionVariants: Variants = {
     hidden: {},
@@ -32,8 +33,9 @@ const timelineListVariants: Variants = {
     hidden: {},
     show: {
         transition: {
-            delayChildren: 0.75, // after bar finishes
-            staggerChildren: 0.16,
+            // delayChildren: 0.75, // after bar finishes
+            // staggerChildren: 0.16,
+            delayChildren: stagger(.35)
         },
     },
 };
