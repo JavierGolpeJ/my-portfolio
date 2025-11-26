@@ -60,7 +60,7 @@ export default function About() {
                         Software Developer
                     </p>
                     <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                        Front-end architecture · DX · AI tooling
+                        Full-stack development · Modern UI · Scalable systems
                     </p>
                 </motion.div>
 
@@ -93,7 +93,7 @@ export default function About() {
                         Open To
                     </p>
                     <p className="text-sm sm:text-base text-gray-900 dark:text-gray-50">
-                        Full-Time · Contract
+                        Full-Time · Part-Time · Contract
                     </p>
                     <p className="mt-1 text-[11px] text-gray-600 dark:text-gray-300">
                         ⚡ Always learning. Always shipping.
@@ -112,17 +112,18 @@ export default function About() {
                         Bio
                     </p>
                     <p className="text-gray-800 dark:text-gray-100 leading-relaxed text-sm sm:text-base max-w-2xl">
-                        Software developer with a focus on front-end architecture and developer
-                        experience. I enjoy building{" "}
-                        <span className="font-semibold text-sky-500">delightful, accessible UIs</span>
-                        {" "}
-                        and
-                        <span className="font-semibold text-purple-400"> stable APIs</span> that empower people to scale products faster.
+                        Software developer who enjoys building thoughtful, modern full-stack applications. I love crafting{" "}
+                        <span className="font-semibold text-sky-500">intuitive and responsive UIs</span>{" "}
+                        and{" "}
+                        <span className="font-semibold text-purple-400">solid, maintainable backend systems</span>{" "}
+                        with React, TypeScript, and Supabase. I’m motivated by clean design, strong architecture, and creating software that feels smooth and reliable.
                     </p>
+
                     <p className="mt-4 text-gray-700 dark:text-gray-400 text-sm leading-relaxed max-w-2xl">
-                        I’m currently exploring how{" "}
-                        <span className="text-sky-400 font-semibold">AI-assisted tools</span> can improve developer workflows.
+                        Lately, I’ve been continuing work on my app while exploring new patterns, tools, and technologies
+                        to improve the way I design, structure, and ship applications.
                     </p>
+
                 </motion.div>
 
                 {/* Tile 5 – Interests */}
@@ -137,11 +138,14 @@ export default function About() {
                         Interests
                     </p>
                     <ul className="space-y-1.5 text-sm text-gray-800 dark:text-gray-100">
-                        <li>DevTools & developer experience</li>
-                        <li>Web performance & scalability</li>
-                        <li>AI-assisted development workflows</li>
-                        <li>Design systems & UX patterns</li>
+                        <li>Full-stack product development</li>
+                        <li>Applying AI capabilities in practical applications</li>
+                        <li>Modern UI design & intuitive user experiences</li>
+                        <li>High-performance, scalable architectures</li>
+                        <li>React, TypeScript & evolving frontend ecosystems</li>
+                        <li>Developer workflows, patterns & clean code</li>
                     </ul>
+
                 </motion.div>
             </div>
         </motion.section>
