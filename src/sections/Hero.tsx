@@ -70,7 +70,7 @@ export default function Hero() {
                         className="mt-5 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl"
                     >
                         I design and build full-stack experiences with React, TypeScript, Node.js,
-                        PostgreSQL, and cloud services — with a focus on performance, DX, and
+                        mySQL, and cloud services — with a focus on performance, design, and
                         clean architecture.
                     </motion.p>
 
@@ -130,8 +130,7 @@ export default function Hero() {
                         variants={item}
                         className="mt-5 text-[10px] text-gray-500 dark:text-gray-500"
                     >
-                        Previously built tools for real-estate, developer tooling, and security
-                        projects at UWM.
+                        Built and refined full-stack projects through personal exploration and university coursework.
                     </motion.div>
                 </div>
 

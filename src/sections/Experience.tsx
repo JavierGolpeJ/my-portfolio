@@ -77,7 +77,7 @@ const experiences = [
         company: "AI Documentation Generator",
         highlights: [
             "Built an automated code-to-documentation pipeline using Python and Hugging Face datasets.",
-            "Fine-tuned CodeLlama to generate function- and class-level documentation from raw source code.",
+            "Fine-tuned CodeLlama to generate function and class level documentation from raw source code.",
             "Created a report generator that outputs human-readable documentation for faster onboarding and project understanding.",
         ],
     },
@@ -182,7 +182,7 @@ export default function Experience() {
                                             className="font-medium text-gray-900 dark:text-gray-100"
                                             dangerouslySetInnerHTML={{
                                                 __html: point.replace(
-                                                    /(\bTypeScript\b|\bfeature X\b|\bCI\/CD\b)/g,
+                                                    /(\bTypeScript\b|\bDeveloped\b|\bReact\b|\bAPI\b|\bdeveloped\b|\bDesigned\b|\bteam\b|\bPython\b|\bHugging Face\b|\bFine-tuned\b|\bfrontend\b|\bdatabase\b|)/g,
                                                     '<span class="text-sky-500 font-semibold">$1</span>'
                                                 ),
                                             }}
