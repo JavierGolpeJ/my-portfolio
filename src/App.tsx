@@ -31,7 +31,7 @@ function App() {
           {/* Background Animation */}
           <div className="pointer-events-none
           absolute inset-0
-          md:fixed md:h-[100svh]
+          md:fixed md:h-[200svh]
           dark:bg-black -z-10 w-full
           transform-gpu will-change-transform">
               <div className="absolute inset-0">
