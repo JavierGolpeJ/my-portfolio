@@ -9,6 +9,7 @@ import SkillToolbox from "./sections/SkillsToolbox.tsx";
 import Experience from "./sections/Experience.tsx";
 import Footer from "./sections/Footer.tsx";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react"
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
               <Footer />
           </main>
 
+          <Analytics/>
           <SpeedInsights/>
 
       </div>
