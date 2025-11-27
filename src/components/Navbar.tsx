@@ -57,6 +57,7 @@ export default function Navbar() {
                 <div className="h-16 flex items-center justify-between">
                     {/* Logo + name */}
                     <div className="flex items-center gap-3">
+                        <img src="/logo.svg" alt="JG Logo" className="h-10 w-10" />
                         <div className="leading-tight">
                             <div className="text-[11px] uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">
                                 Portfolio

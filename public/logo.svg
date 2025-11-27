@@ -1,0 +1,28 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Deep blue gradient background -->
+        <linearGradient id="jg-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#020617"/>
+            <stop offset="45%" stop-color="#0f172a"/>
+            <stop offset="100%" stop-color="#1d4ed8"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Rounded square badge -->
+    <rect x="16" y="16" width="224" height="224" rx="72" fill="url(#jg-bg)"/>
+
+    <!-- Initials -->
+    <text
+            x="50%"
+            y="50%"
+            text-anchor="middle"
+            dominant-baseline="central"
+            font-family="system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+            font-size="112"
+            font-weight="700"
+            fill="#f9fafb"
+            letter-spacing="4"
+    >
+        JG
+    </text>
+</svg>
