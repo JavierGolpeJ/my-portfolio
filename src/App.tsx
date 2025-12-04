@@ -1,16 +1,37 @@
 import { Helmet } from "react-helmet-async";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import About from "./sections/About.tsx";
 import Contact from "./sections/Contact.tsx";
-import ColorBends from "./background_components/ColorBend.tsx";
+// import ColorBends from "./background_components/ColorBend.tsx";
 import Hero from "./sections/Hero.tsx";
 import Projects from "./sections/FeaturedProjects.tsx";
 import SkillToolbox from "./sections/SkillsToolbox.tsx";
 import Experience from "./sections/Experience.tsx";
 import Footer from "./sections/Footer.tsx";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
+const ColorBends = lazy(() => import("./background_components/ColorBend"));
+
+function usePrefersReducedMotion() {
+    const [prefersReduced, setPrefersReduced] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+        setPrefersReduced(mediaQuery.matches);
+
+        const handler = (event: MediaQueryListEvent) =>
+            setPrefersReduced(event.matches);
+
+        mediaQuery.addEventListener("change", handler);
+        return () => mediaQuery.removeEventListener("change", handler);
+    }, []);
+
+    return prefersReduced;
+}
 
 function App() {
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
@@ -22,6 +43,20 @@ function App() {
     const colorBendWarp = isMobile ? 1 : 1;
     const colorBendParallax = isMobile ? .7 : .5;
 
+    const prefersReducedMotion = usePrefersReducedMotion();
+    const [showBackground, setShowBackground] = useState(false);
+
+    // Delay the heavy background a bit so main content loads first
+    useEffect(() => {
+        if (prefersReducedMotion) return;
+
+        const id = window.setTimeout(() => {
+            setShowBackground(true);
+        }, 400); // tweak 300–800ms if you want
+
+        return () => window.clearTimeout(id);
+    }, [prefersReducedMotion]);
+
   return (
       <div className="relative min-h-[100svh] no-scrollbar">
           <Helmet>
@@ -30,26 +65,30 @@ function App() {
           </Helmet>
 
           {/* Background Animation */}
-          <div className="pointer-events-none
-          absolute inset-0
-          md:fixed md:h-[200svh]
-          dark:bg-black -z-10 w-full
-          transform-gpu will-change-transform">
-              <div className="absolute inset-0">
-              <ColorBends className="w-full h-full md:h-screen"
-                  colors={["#bb1537", "#4806fa", "#00f3cb"]}
-                  rotation={colorBendRotation}
-                  autoRotate={colorBendRotate}
-                  speed={colorBendSpeed}
-                  scale={colorBendScale}
-                  frequency={colorBendFrequency}
-                  warpStrength={colorBendWarp}
-                  mouseInfluence={0.8}
-                  parallax={colorBendParallax}
-                  noise={0}
-              />
+          {!prefersReducedMotion && showBackground &&(
+              <div className="pointer-events-none
+                absolute inset-0
+                md:fixed md:h-[200svh]
+                dark:bg-black -z-10 w-full
+                transform-gpu will-change-transform">
+                  <div className="absolute inset-0">
+                      <Suspense fallback={null}>
+                      <ColorBends className="w-full h-full md:h-screen"
+                                  colors={["#bb1537", "#4806fa", "#00f3cb"]}
+                                  rotation={colorBendRotation}
+                                  autoRotate={colorBendRotate}
+                                  speed={colorBendSpeed}
+                                  scale={colorBendScale}
+                                  frequency={colorBendFrequency}
+                                  warpStrength={colorBendWarp}
+                                  mouseInfluence={0.8}
+                                  parallax={colorBendParallax}
+                                  noise={0}
+                      />
+                      </Suspense>
+                  </div>
               </div>
-          </div>
+              )}
 
           {/*Nav*/}
           <Navbar />
